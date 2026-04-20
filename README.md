@@ -1,45 +1,81 @@
-# Ecommerce Dashboard (Vue 3 + TypeScript)
+# Ecommerce Dashboard
 
-一个面向电商经营分析的前端可视化看板，包含实时销售趋势、地区销售分布、商品雷达对比、用户行为漏斗/桑基图，以及性能监控面板。
+一个基于 `Vue 3 + TypeScript + Vite` 的电商经营分析可视化看板项目，面向运营与分析场景，聚焦销售、地域、商品、用户行为与前端性能监控。
+
+## 在线预览
+
+- 网站地址：[https://linan-learner.github.io/ecommerce-dashboard/](https://linan-learner.github.io/ecommerce-dashboard/)
+- 仓库地址：[https://github.com/linan-learner/ecommerce-dashboard](https://github.com/linan-learner/ecommerce-dashboard)
+
+## 功能模块
+
+- 实时销售看板：销售趋势折线图 + 实时订单滚动列表
+- 省份销售分析：省份销售排名与城市级钻取展示
+- 商品雷达分析：多商品多维度对比，支持权重调节
+- 用户行为分析：漏斗图 + 桑基图观察转化与流向
+- 性能监控面板：FPS、内存、API 耗时、资源加载瀑布
 
 ## 技术栈
 
-- Vue 3 + Composition API
-- TypeScript
-- Vite
-- ECharts
-- Element Plus
+- 核心框架：`Vue 3`、`Vue Router`、`TypeScript`
+- 可视化：`ECharts`
+- UI 组件：`Element Plus`
+- 工程化：`Vite`、`ESLint`、`Prettier`、`vue-tsc`
+- 部署：`GitHub Pages` + `GitHub Actions`
 
-## 项目结构（面试可讲重点）
+## 项目亮点
 
-- `src/views/*`：各业务大屏页面（图表 + 交互逻辑）
-- `src/composables/useECharts.ts`：统一图表生命周期（`init / resize / dispose`），减少重复代码和实例泄漏风险
-- `src/api/*`：数据层抽象（当前实时订单为 Mock，可替换为真实接口实现）
-- `src/composables/useTheme.ts`：主题初始化（当前固定浅色，已移除深色模式）
+- 图表生命周期封装：统一 `init / resize / dispose`，降低实例泄漏风险
+- 分层清晰：页面层（`views`）与状态层（`features/*/composables`）解耦
+- 配置可复用：图表 `option` 构建器独立，便于维护和扩展
+- 数据可替换：`api` 层目前为 Mock，实现与真实接口的平滑切换
+- 性能意识：订单列表使用可视区渲染思路减少长列表开销
 
-## 你可以怎么展示「工程化能力」
-
-1. 图表生命周期统一封装：避免频繁 `echarts.init/dispose` 的重复与内存泄漏
-2. 数据与 UI 解耦：`SalesDashboard` 实时订单改为走 `src/api/sales.ts`（Mock），后续替换真实 API 不改组件结构
-3. 性能意识：`SalesDashboard` 使用滚动虚拟可视区思想（只渲染可见部分）
-
-## 开发与构建
+## 快速开始
 
 ```bash
 npm install
 npm run dev
 ```
 
-生产构建（含类型检查）：
+默认开发地址：`http://localhost:5174/ecommerce-dashboard/`
+
+## 构建与检查
 
 ```bash
+# 生产构建（含类型检查）
 npm run build
-```
 
-代码检查：
+# 本地预览构建产物
+npm run preview
 
-```bash
+# 类型检查
+npm run type-check
+
+# 代码规范检查与修复
 npm run lint
 ```
 
-本地类型检查：`npm run type-check`。编辑器建议安装 [Vue - Official (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)。Vite 配置见 [vite.config.ts](vite.config.ts)。
+## 目录结构
+
+```text
+src/
+  api/                 # 数据访问层（当前为 Mock）
+  composables/         # 通用组合式能力（响应式缩放、ECharts 封装）
+  features/            # 按业务模块组织的状态与图表配置
+  router/              # 路由配置
+  utils/               # 工具函数（如统一触发图表 resize）
+  views/               # 页面组件
+```
+
+## 部署说明
+
+项目已配置 GitHub Actions 自动部署，推送 `main` 分支后会自动发布到 GitHub Pages。
+
+- 工作流文件：`.github/workflows/deploy.yml`
+- Vite 子路径配置：`vite.config.ts` 中 `base: '/ecommerce-dashboard/'`
+- 路由模式：`createWebHashHistory`（适配 Pages 刷新场景）
+
+## License
+
+仅用于学习与个人作品展示。
