@@ -1,0 +1,84 @@
+/* 引入主题变量 */
+@import './variables.css';
+
+/* 全局重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 大屏容器 */
+.dashboard-app {
+  width: 100%;
+  min-height: 100vh;
+  transition: transform 0.2s ease;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+  background: var(--primary-color);
+  padding: 12px 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  font-size: var(--font-size-normal);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-link.router-link-active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: var(--spacing-large);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}

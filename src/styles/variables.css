@@ -1,0 +1,39 @@
+/* 浅色主题变量 */
+:root {
+    /* 主色调 */
+    --primary-color: #409eff;
+    --primary-light: #66b1ff;
+    --primary-dark: #3a8ee6;
+    
+    /* 背景色 */
+    --bg-color: #f5f7fa;
+    --bg-white: #ffffff;
+    --bg-gray: #f0f2f5;
+    --bg-dark: #1f2d3d;
+    
+    /* 文字颜色 */
+    --text-primary: #303133;
+    --text-regular: #606266;
+    --text-secondary: #909399;
+    --text-placeholder: #c0c4cc;
+    
+    /* 边框颜色 */
+    --border-color: #dcdfe6;
+    --border-light: #e4e7ed;
+    
+    /* 卡片阴影 */
+    --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    
+    /* 字体大小 */
+    --font-size-large: 18px;
+    --font-size-medium: 16px;
+    --font-size-normal: 14px;
+    --font-size-small: 12px;
+    
+    /* 间距 */
+    --spacing-large: 20px;
+    --spacing-medium: 16px;
+    --spacing-normal: 12px;
+    --spacing-small: 8px;
+  }
+  
